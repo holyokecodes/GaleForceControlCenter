@@ -25,7 +25,7 @@ h2 {
     flex-direction: column;
     justify-content: end;
 }
-.page-heading {
+.page-heading {nk
     font-size: 4.5rem;
     font-family: 'Squada One', cursive;
 
@@ -67,6 +67,8 @@ img {
 .nav-tabs .nav-link .btn-title {
     color: #ffffff;
     font-weight: 600;
+        font-size: 30px;
+
 }
 .nav-tabs .nav-link.active .btn-title {
     color: 3;
