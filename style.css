@@ -64,6 +64,11 @@ img {
 .nav-tabs .nav-link.active {
     border-color: #ffffff;
 }
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+color: #fff;
+background-color: #fff;
+}
+
 .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
     border-color: #ffffff;
 }
