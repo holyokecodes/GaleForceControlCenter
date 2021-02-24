@@ -1,0 +1,52 @@
+body {
+    background-color: #000000;
+}
+#header {
+    background-color: #ffffff;
+}
+#header .col {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+.page-heading {
+    font-size: 3.5rem;
+}
+.subheading {
+    font-size: 1.3rem;
+    margin-bottom: 0;
+}
+#content {
+    color: #ffffff;
+}
+img {
+    max-width: 100%;
+}
+.nav-tabs {
+    padding-top: 3rem;
+    border-bottom: 0;
+    border-right: 3px solid pink;
+}
+.nav-tabs .nav-link {
+    color: #ffffff;
+    text-align: left;
+    border-radius: 0;
+}
+.nav-tabs .nav-link.active {
+    background-color: blue;
+    color: #ffffff;
+    border-color: blue;
+}
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+    border-color: blue;
+}
+.nav-tabs .nav-link .btn-title {
+    color: blue;
+    font-weight: 600;
+}
+.nav-tabs .nav-link.active .btn-title {
+    color: lightblue;
+}
+.tab-content {
+    padding: 3rem;
+}
