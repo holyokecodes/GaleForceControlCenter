@@ -10,6 +10,9 @@ body {
 a {
     color: #ffffff;
 }
+p {
+    padding-bottom: 10px;
+}
 h2 {
     font-size: 40px;
 }
