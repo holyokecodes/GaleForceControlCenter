@@ -39,7 +39,7 @@ img {
 }
 .nav-tabs .nav-link.active {
     background-color: blue;
-    color: #000000;
+    color: #ffffff;
     border-color: #ffffff;
 }
 .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
