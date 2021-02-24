@@ -3,7 +3,7 @@
 
 body {
     background-color: #000000;
-    font-size: 60px;
+    font-size: 50px;
     line-height 60px;
 }
 
@@ -14,7 +14,7 @@ p {
     padding-bottom: 15px;
 }
 h2 {
-    font-size: 60px;
+    font-size: 50px;
 }
 #header {
     background-color: #ffffff;
@@ -25,13 +25,13 @@ h2 {
     flex-direction: column;
     justify-content: end;
 }
-.page-heading {nk
-    font-size: 6rem;
+.page-heading {
+    font-size: 60px;
     font-family: 'Squada One', cursive;
 
 }
 .subheading {
-    font-size: 3 rem;
+    font-size: 40px;
     margin-bottom: 0;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
@@ -46,6 +46,7 @@ img {
 }
 #logo {
     padding:40px;
+    height:200px;
 }
 .nav-tabs {
     padding-top: 4rem;
