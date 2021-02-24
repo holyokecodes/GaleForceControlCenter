@@ -38,8 +38,8 @@ img {
     border-radius: 0;
 }
 .nav-tabs .nav-link.active {
-    background-color: #lightblue;
-    color: #ffffff;
+    background-color: lightblue;
+    color: #000000;
     border-color: #ffffff;
 }
 .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
