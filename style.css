@@ -10,6 +10,11 @@ body {
 a {
     color: #ffffff;
 }
+a:hover {
+    color: #8a237e;
+}
+
+
 p {
     padding-bottom: 15px;
 }
