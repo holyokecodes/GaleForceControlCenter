@@ -11,7 +11,7 @@ a {
 }
 #header {
     background-color: #ffffff;
-    height: 20%;
+    height: 200px;
 }
 #header .col {
     display: flex;
@@ -20,12 +20,14 @@ a {
 }
 .page-heading {
     font-size: 3.5rem;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Squada One', cursive;
+
 }
 .subheading {
     font-size: 1.3rem;
     margin-bottom: 0;
-    font-family: 'Squada One', cursive;
+    font-family: 'Montserrat', sans-serif;
+
 }
 #content {
     color: #ffffff;
