@@ -49,8 +49,8 @@ img {
 }
 .nav-tabs {
     padding-top: 4rem;
-    padding-right: 60px;
-    padding-left: 60px;
+    margin-right: 60px;
+    margin-left: 60px;
 
     border-bottom: 0;
     border-right: 3px solid blue;
