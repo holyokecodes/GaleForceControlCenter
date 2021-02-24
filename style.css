@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:wght@600;800&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Squada+One&display=swap');
 
 body {
@@ -36,11 +36,11 @@ h2 {
 
 }
 .subheading {
-    font-size: 40px;
+    font-size: 36px;
     margin-bottom: 0;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    padding-top: 60px;
+    font-weight: 800;
+    padding-top: 40px;
 
 }
 #content {
@@ -52,7 +52,7 @@ img {
 #logo {
     width:333px;
     height:162px;
-    padding-top:20px;
+    padding-top:30px;
 
 }
 .nav-tabs {
