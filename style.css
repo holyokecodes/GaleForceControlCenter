@@ -3,18 +3,18 @@
 
 body {
     background-color: #000000;
-    font-size: 40px;
-    line-height 40px;
+    font-size: 60px;
+    line-height 60px;
 }
 
 a {
     color: #ffffff;
 }
 p {
-    padding-bottom: 10px;
+    padding-bottom: 15px;
 }
 h2 {
-    font-size: 40px;
+    font-size: 60px;
 }
 #header {
     background-color: #ffffff;
@@ -26,12 +26,12 @@ h2 {
     justify-content: end;
 }
 .page-heading {nk
-    font-size: 4.5rem;
+    font-size: 6rem;
     font-family: 'Squada One', cursive;
 
 }
 .subheading {
-    font-size: 1.5rem;
+    font-size: 3 rem;
     margin-bottom: 0;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
