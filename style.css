@@ -26,15 +26,15 @@ h2 {
     justify-content: end;
 }
 .page-heading {
-    font-size: 60px;
+    font-size: 70px;
     font-family: 'Squada One', cursive;
 
 }
 .subheading {
-    font-size: 40px;
+    font-size: 30px;
     margin-bottom: 0;
     font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
+    font-weight: 600;
     padding-top: 60px;
 
 }
@@ -54,7 +54,6 @@ img {
     padding-top: 4rem;
     margin-right: 30px;
     margin-left: 30px;
-
     border-bottom: 0;
     border-right: 3px solid #58a9e0;
 }
@@ -64,7 +63,6 @@ img {
     border-radius: 0;
 }
 .nav-tabs .nav-link.active {
-    color: #ffffff;
     border-color: #ffffff;
 }
 .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
@@ -73,7 +71,7 @@ img {
 .nav-tabs .nav-link .btn-title {
     color: #ffffff;
     font-weight: 600;
-        font-size: 30px;
+    font-size: 30px;
 
 }
 .nav-tabs .nav-link.active .btn-title {
