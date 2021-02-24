@@ -39,14 +39,14 @@ img {
     border-color: blue;
 }
 .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
-    border-color: blue;
+    border-color: #ffffff;
 }
 .nav-tabs .nav-link .btn-title {
-    color: blue;
+    color: #ffffff;
     font-weight: 600;
 }
 .nav-tabs .nav-link.active .btn-title {
-    color: lightblue;
+    color: 3;
 }
 .tab-content {
     padding: 3rem;
