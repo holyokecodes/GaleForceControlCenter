@@ -1,0 +1,229 @@
+<html>
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+    </style>
+    <!-- Style sheets -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css" /> <!-- 'classic' theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/monolith.min.css" /> <!-- 'monolith' theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css" /> <!-- 'monolith' theme -->
+    <script src="jscolor.js"></script>
+
+    <style>
+        #container {
+            width: 1920px;
+            height: 1080px;
+            display: flex;
+            background-color: transparent;
+        }
+
+        #left {
+            width: 50%;
+            background-color: #fff;
+        }
+
+        #right {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+        }
+
+
+
+
+        #title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #4d0156;
+            border-top: 18px solid #24a0dd;
+            border-bottom: 18px solid #24a0dd;
+            height: 10%;
+            padding-top: 70px;
+            padding-bottom: 60px;
+            margin-bottom: 40px;
+        }
+
+        #buttons {
+            display: flex;
+            justify-content: center;
+        }
+
+        .pickers {
+            display: flex;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            margin-left: 370px;
+        }
+
+        .picker-type {
+            display: flex;
+            justify-content: center;
+            color: #000;
+            font-family: 'Montserrat';
+            font-weight: 400;
+            font-size: 36px;
+            padding: 15px 30px;
+        }
+
+        .arrows {
+            display: flex;
+            margin-top: 250px;
+            margin-left: 150px;
+        }
+
+        .third {
+            width: 320px;
+        }
+
+        .color-picker {
+            padding-left: 60px;
+        }
+
+
+        h1 {
+            font-family: 'Squada One', cursive;
+            text-transform: uppercase;
+            font-size: 110px;
+            color: #fff;
+        }
+
+        input[type=text] {
+            width: 50%;
+            padding: 25px 20px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        ::placeholder {
+            color: #4d0156;
+            font-size: 2em;
+        }
+
+        .primary {
+            text-transform: uppercase;
+            font-size: 44px;
+            color: #fff;
+            font-family: 'Squada One', cursive;
+            font-weight: 400;
+            padding: 10px 75px;
+            background-color: #0c78ba;
+            text-decoration: none;
+            margin: 20px;
+        }
+
+        .secondary {
+            text-transform: uppercase;
+            font-size: 24px;
+            color: #fff;
+            font-family: 'Montserrat';
+            font-weight: 400;
+            padding: 15px 30px;
+            background-color: #4d0156;
+            text-decoration: none;
+            margin: 20px;
+        }
+
+        input, textarea, keygen, select, button {
+            margin-top: 0em;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 30px;
+            font-family: system-ui;
+            font-variant-caps: normal;
+            color: initial;
+            letter-spacing: normal;
+            word-spacing: normal;
+            line-height: normal;
+            text-transform: none;
+            text-indent: 0px;
+            text-shadow: none;
+            display: inline-block;
+            text-align: start;
+        }
+
+        .jscolor {
+            width: 80px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="container">
+
+        <div id="left">
+
+            <div id="title">
+                <h1>Customize</h1>
+            </div>
+
+            <div>
+                <div class="pickers">
+
+                    <button data-jscolor="{value:'#272B2A', position:'right', height:300, width:450, paletteHeight:80, buttonHeight:30 ,        // make the color preview bigger
+                          palette:'#0f0703 #371704 #272B2A #3c1d13 #592e1d #744f21 #722c26 #783932 #a1572d #d3b264 #d3b86e',
+                          paletteCols:11, hideOnPaletteClick:true, closeButton:true, closeText:'ClOSE', buttonColor:'#692870'}"></button>
+                    <div class="picker-type">Hair</div>''
+                </div>
+                <div class="pickers">
+                    <button data-jscolor="{value:'#E8CDA8', position:'right', height:300, width:450, paletteHeight:80, buttonHeight:30 ,
+                          palette:'#483728 #573719 #7B4B2A #935D37 #AA7248 #CEAB69 #COA183 #C8ACA3 #b99584 #E8CDA8 #e2cce0',
+                          paletteCols:11, hideOnPaletteClick:true, closeButton:true, closeText:'ClOSE', buttonColor:'#692870'}"></button>
+
+                    <div class="picker-type">Skin</div>
+                </div>
+                <div class="pickers">
+                    <button data-jscolor="{value:'#4d90bc', position:'right', height:300, width:450, paletteHeight:80, buttonHeight:30 ,
+                          palette:'#692870 #4a0e59 #610956 #0f5d91 #4d90bc #9dcd65 #666666 #d52435 #81bfe9',
+                          paletteCols:11, hideOnPaletteClick:true, closeButton:true, closeText:'ClOSE', buttonColor:'#692870'}"></button>
+                    <div class="picker-type">Pants</div>
+                </div>
+            </div>
+
+            <div id="buttons">
+                <a href="index.html" class="primary large">done</a>
+
+            </div>
+
+        </div>
+
+        <div id="right">
+
+            <div class="arrows">
+                <div class="third">
+                    <a href="#"><img src="assets/LArrow-b.png" style="width:60px;height:120px;"></a>
+                </div>
+                <div class="third">
+                    
+                </div>
+                <div class="third">
+                    <a href="#"><img src="assets/RArrow-b.png" style="width:60px;height:120px;"></a>
+                </div>
+            </div>
+
+            <div class="arrows">
+                <div class="third">
+                    <a href="#"><img src="assets/LArrow-b.png"style="width:60px;height:120px;"></a>
+
+                </div>
+                <div class="third">
+                    
+                </div>
+                <div class="third">
+                    <a href="#"><img src="assets/RArrow-b.png" style="width:60px;height:120px;"></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
+
+
