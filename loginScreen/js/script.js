@@ -49,3 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // });
 
 }, false);
+
+function handleColorChange(target, color) {
+    window.vuplex.postMessage({ action: target, value: color});
+}
