@@ -5,11 +5,8 @@
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
     </style>
     <!-- Style sheets -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css" /> <!-- 'classic' theme -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/monolith.min.css" /> <!-- 'monolith' theme -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css" /> <!-- 'monolith' theme -->
-    <script src="jscolor.js"></script>
-
+    <script src="js/jscolor.js"></script>
+    <script src="js/script.js"></script>
     <style>
         #container {
             width: 1920px;
@@ -28,9 +25,6 @@
             flex-direction: column;
             width: 50%;
         }
-
-
-
 
         #title {
             display: flex;
@@ -81,7 +75,6 @@
         .color-picker {
             padding-left: 60px;
         }
-
 
         h1 {
             font-family: 'Squada One', cursive;
@@ -195,33 +188,25 @@
 
             <div class="arrows">
                 <div class="third">
-                    <a href="#"><img src="assets/LArrow-b.png" style="width:60px;height:120px;"></a>
+                    <a id="prevHairButton" href="#"><img src="assets/LArrow-b.png" style="width:60px;height:120px;"></a>
                 </div>
+                <div class="third"></div>
                 <div class="third">
-                    
-                </div>
-                <div class="third">
-                    <a href="#"><img src="assets/RArrow-b.png" style="width:60px;height:120px;"></a>
+                    <a id="nextHairButton" href="#"><img src="assets/RArrow-b.png" style="width:60px;height:120px;"></a>
                 </div>
             </div>
 
             <div class="arrows">
                 <div class="third">
-                    <a href="#"><img src="assets/LArrow-b.png"style="width:60px;height:120px;"></a>
-
+                    <a id="prevAvatarButton" href="#"><img src="assets/LArrow-b.png"style="width:60px;height:120px;"></a>
                 </div>
+                <div class="third"></div>
                 <div class="third">
-                    
-                </div>
-                <div class="third">
-                    <a href="#"><img src="assets/RArrow-b.png" style="width:60px;height:120px;"></a>
-
+                    <a id="nextAvatarButton" href="#"><img src="assets/RArrow-b.png" style="width:60px;height:120px;"></a>
                 </div>
             </div>
         </div>
     </div>
-
-
 
 </body>
 </html>

@@ -1,0 +1,51 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+    if (window.vuplex) {
+        window.addEventListener('vuplexready', window.vuplex.postMessage("REQUEST_FOR_INFO"));
+
+        window.vuplex.addEventListener('message', function messageEndListener(event) {
+            let json = JSON.parse(event.data);
+            $('#displayNameInput').val(json.DisplayName);
+            $('#shirtColorInput').val(json.ShirtColor);
+            $('#pantsColorInput').val(json.PantsColor);
+        });
+    }
+
+    document.getElementById('nextAvatarButton').addEventListener('click', (e) => {
+        e.preventDefault();
+        window.vuplex.postMessage({ 'avatar': 'next'});
+    });
+    document.getElementById('prevAvatarButton').addEventListener('click', (e) => {
+        e.preventDefault();
+        window.vuplex.postMessage({ 'avatar': 'prev'});
+    });
+
+    document.getElementById('nextHairButton').addEventListener('click', (e) => {
+        e.preventDefault();
+        window.vuplex.postMessage({ 'hair': 'next'});
+    });
+    document.getElementById('prevHairButton').addEventListener('click', (e) => {
+        e.preventDefault();
+        window.vuplex.postMessage({ 'hair': 'prev'});
+    });
+
+    // $('colorPicker').on('change', (picker) => {
+    //     window.vuplex.postMessage('')
+    // });
+    
+    // $('#loginButton').click(() => {
+    //     let displayName = $('#displayNameInput').val();
+    //     let hairColor = $('#hairColorInput').val();
+    //     let skinColor = $('#skinColorInput').val();
+    //     let shirtColor = $('#shirtColorInput').val();
+    //     let pantsColor = $('#pantsColorInput').val();
+
+    //     var jsonObj = {
+    //         DisplayName: displayName,
+    //         ShirtColor: shirtColor,
+    //         PantsColor: pantsColor
+    //     }
+    //     window.vuplex.postMessage(jsonObj);
+    // });
+
+}, false);
