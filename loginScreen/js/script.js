@@ -13,20 +13,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('nextAvatarButton').addEventListener('click', (e) => {
         e.preventDefault();
-        window.vuplex.postMessage({ 'avatar': 'next'});
+        window.vuplex.postMessage({ action: 'avatar', value: 'next'});
     });
     document.getElementById('prevAvatarButton').addEventListener('click', (e) => {
         e.preventDefault();
-        window.vuplex.postMessage({ 'avatar': 'prev'});
+        window.vuplex.postMessage({ action: 'avatar', value: 'prev'});
     });
 
     document.getElementById('nextHairButton').addEventListener('click', (e) => {
         e.preventDefault();
-        window.vuplex.postMessage({ 'hair': 'next'});
+        window.vuplex.postMessage({ action: 'hair', value: 'next'});
     });
     document.getElementById('prevHairButton').addEventListener('click', (e) => {
         e.preventDefault();
-        window.vuplex.postMessage({ 'hair': 'prev'});
+        window.vuplex.postMessage({ action: 'hair', value: 'prev'});
     });
 
     // $('colorPicker').on('change', (picker) => {
