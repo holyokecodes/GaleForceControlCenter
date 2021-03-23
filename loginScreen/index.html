@@ -109,7 +109,7 @@
 			<div id="login">
 				<h1>GaleForce Login</h1>
 		     	<input type="text" id="aname" placeholder="Avatar Name">
-				<a href="#" class="primary large">play</a>
+				<a id="play" href="#" class="primary large">play</a>
 			</div>
 
 			<div id="buttons">
@@ -125,7 +125,26 @@
 		</div>
 
 	</div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
 
+      if (window.vuplex) {
+          window.addEventListener('vuplexready', window.vuplex.postMessage("REQUEST_FOR_INFO"));
+
+          window.vuplex.addEventListener('message', function messageEndListener(event) {
+              let json = JSON.parse(event.data);
+              document.getElementById('aname').val(json.DisplayName);
+          });
+      }
+
+      document.getElementById('play').addEventListener('click', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('aname').val();
+        window.vuplex.postMessage({ action: 'play', value: name});
+      });
+
+    });
+  </script>
 </body>
 </html>
 
