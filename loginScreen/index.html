@@ -139,7 +139,7 @@
 
       document.getElementById('play').addEventListener('click', (e) => {
         e.preventDefault();
-        const name = document.getElementById('aname').val();
+        const name = document.getElementById('aname').value;
         window.vuplex.postMessage({ action: 'play', value: name});
       });
 
