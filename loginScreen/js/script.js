@@ -28,10 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         window.vuplex.postMessage({ action: 'hair', value: 'prev'});
     });
-
-    // $('colorPicker').on('change', (picker) => {
-    //     window.vuplex.postMessage('')
-    // });
     
     // $('#loginButton').click(() => {
     //     let displayName = $('#displayNameInput').val();
