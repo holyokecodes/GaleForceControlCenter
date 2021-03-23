@@ -133,7 +133,7 @@
 
           window.vuplex.addEventListener('message', function messageEndListener(event) {
               let json = JSON.parse(event.data);
-              document.getElementById('aname').val(json.DisplayName);
+              document.getElementById('aname').value = json.DisplayName;
           });
       }
 
