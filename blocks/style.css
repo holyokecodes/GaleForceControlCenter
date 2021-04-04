@@ -1,0 +1,109 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #fff;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+h1 {
+  font-weight: normal;
+  font-size: 140%;
+}
+
+#blocklyDiv {
+  float: left;
+  height: 100%;
+  width: 100%;
+}
+
+#greenflag-button {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  background-image: url('media/green-flag.svg');
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+  font-size: 40px;
+  position: fixed;
+  right: 90px;
+  top: 20px;
+  border: none;
+}
+
+#greenflag-button:active {
+  background-color: lightgrey;
+}
+
+#stop-button {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  background-image: url('media/icons/control_stop.svg');
+  background-size: 50px 50px;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+  font-size: 40px;
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  border: none;
+}
+
+#stop-button:active {
+  background-color: lightgrey;
+}
+
+#save-button {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  background-size: 50px 50px;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+  font-size: 20px;
+  position: fixed;
+  right: 250px;
+  top: 20px;
+  border: none;
+}
+
+#load-button {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  background-size: 50px 50px;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+  font-size: 20px;
+  position: fixed;
+  right: 320px;
+  top: 20px;
+  border: none;
+}
+

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="style.css">
+
+<style>
+.teamdiv {
+  overflow:scroll; 
+  height:600px;    
+  width:50%; 
+  float:left
+}
+</style>
+</head>
+
+<body>
+<div id=monitor>
+<h2>GaleForce Activity on <script>document.write(new Date().toLocaleDateString());</script>:</h2>
+<div class="teamdiv" id="teamnone">
+<h2>Team none</h2>
+</div> 
+    
+<div class="teamdiv" id="teamZero">
+<h2>Team TeamZero</h2>
+</div> 
+    
+</div>    
+    
+    
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-database.js"></script>
+
+
+ <script>
+// Your web app's Firebase configuration
+var firebaseConfig = {
+    apiKey: "AIzaSyBZHVq70uDVkDf0hofklzv69lkRXQ05tB4",
+    authDomain: "savedblocks.firebaseapp.com",
+    projectId: "savedblocks",
+    storageBucket: "savedblocks.a/ppspot.com",
+    messagingSenderId: "586627606863",
+    appId: "1:586627606863:web:1c2ccc5a653709c4707d3a"
+ };
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+     
+let today = new Date();     
+let teamnone = document.getElementById("teamnone");
+let teamZero = document.getElementById("teamZero");
+firebase.database().ref('archive').on('child_added', (child) => {
+     let key = child.key;
+     let data = child.val();
+     let output = "<p>Time " + data.time + "<br>Mission " + data.mission + "<br>Player: " + data.player + "<br>Changes: " + data.changes + "<br>Runs: " + data.runs + "<br> Status: " + data.status;
+    
+     // change to substring(4,10) for today's date, (4,7) for this month
+     if (data.time.includes(today.toDateString().substring(4,10))) {
+         if(data.team == "none")
+            teamnone.innerHTML += output
+         else if (data.team == "TeamZero")
+            teamZero.innerHTML += output;
+     }
+});
+                                      
+     
+     
+
+      
+</script>
+</body>
+
+</html>

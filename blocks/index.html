@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="modal.css">
+</head>
+
+<body>
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span id="close">&times;</span>
+      <p><span id="msg">Name:</span> <input type="text" id="modalInput"></p>
+      <select id="modalSelect" style="display:none; min-width:50%"></select>
+      <p> <button id="modalEnterButton">Enter</button></p>
+    </div>
+  </div> 
+
+  <!-- For unknown reasons, this div has to be before next one for blockly to inject -->
+  <div id="editor-actions" style="display: none; visibility:hidden">
+    Change the block name and create. <br>
+    <button id="paramButton">Add Parameter</button>
+    <button id="createButton">Create</button>
+    <button id="cancelButton">Cancel</button>
+  </div>
+      <!-- display block/none or 0px height cause blockly not to inject too -->
+  <div id="designWorkspace" style="display: none; height:80px; visibility:hidden"></div>
+      
+
+  <div id="blocklyDiv" style="height:100%;"></div>
+  <div id="topButtons">
+    <a id="greenflag-button" class="btn"></a>
+    <a id="stop-button" class="btn"></a>
+    <button id="save-button" class="btn">Save</button>
+    <button id="load-button" class="btn">Load</button>
+  </div>
+      
+  <script src="js/blockly_decompressed_vertical.js"></script>
+  <!-- vertical_extensions needs to be before procedures! -->
+  <script src="js/blocks_vertical/vertical_extensions.js"></script>
+  <script src="js/msg/messages.js"></script>
+  <script src="js/msg/scratch_msgs.js"></script>
+  <script src="js/blocks_common/colour.js"></script>
+  <script src="js/blocks_common/math.js"></script>
+  <script src="js/blocks_common/matrix.js"></script>
+  <script src="js/blocks_common/text.js"></script>
+  <script src="js/blocks_vertical/control.js"></script>
+  <script src="js/blocks_vertical/data.js"></script>
+  <script src="js/blocks_vertical/event.js"></script>
+  <script src="js/blocks_vertical/extensions.js"></script>
+  <script src="js/blocks_vertical/looks.js"></script>
+  <script src="js/blocks_vertical/motion.js"></script>
+  <script src="js/blocks_vertical/operators.js"></script>
+  <script src="js/blocks_vertical/sensing.js"></script>
+  <script src="js/blocks_vertical/sound.js"></script>
+  <script src="js/blocks_vertical/procedures.js"></script>
+  <script src="js/generators/javascript.js"></script>
+  <script src="js/generators/javascript/event.js"></script>
+  <script src="js/generators/javascript/colour.js"></script>
+  <script src="js/generators/javascript/lists.js"></script>
+  <script src="js/generators/javascript/logic.js"></script>
+  <script src="js/generators/javascript/loops.js"></script>
+  <script src="js/generators/javascript/math.js"></script>
+  <script src="js/generators/javascript/text.js"></script>
+  <script src="js/generators/javascript/variables.js"></script>
+  <script src="js/generators/javascript/variables_dynamic.js"></script>
+  <script src="js/generators/javascript/operators.js"></script>
+  <script src="js/generators/javascript/motion.js"></script>
+  <script src="js/generators/javascript/control.js"></script>
+  <script src="js/generators/javascript/sensing.js"></script>
+  <script src="js/generators/javascript/data.js"></script>
+  <script src="js/generators/javascript/procedures.js"></script>
+  <script src="js/blocks_vertical/default_toolbox.js"></script>
+  <script src="js/flyout_vertical.js"></script>
+  <script src="js/css.js"></script>
+    
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-database.js"></script>
+  <script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyBZHVq70uDVkDf0hofklzv69lkRXQ05tB4",
+        authDomain: "savedblocks.firebaseapp.com",
+        projectId: "savedblocks",
+        storageBucket: "savedblocks.appspot.com",
+        messagingSenderId: "586627606863",
+        appId: "1:586627606863:web:1c2ccc5a653709c4707d3a"
+      };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+    
+  <script src="js/index.js"></script>
+  <script src="js/vuplexutils.js"></script>
+</body>
+
+</html>
