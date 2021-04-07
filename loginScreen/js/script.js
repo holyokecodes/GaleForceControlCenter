@@ -5,9 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         window.vuplex.addEventListener('message', function messageEndListener(event) {
             let json = JSON.parse(event.data);
-            // $('#displayNameInput').val(json.DisplayName);
-            // $('#shirtColorInput').val(json.ShirtColor);
-            // $('#pantsColorInput').val(json.PantsColor);
+            console.log(json);
+            document.querySelector('#hairColor').jscolor.value = json.HairColor;
+            document.querySelector('#skinColor').jscolor.value = json.SkinColor;
+            document.querySelector('#pantsColor').jscolor.value = json.pantsColor;
         });
     }
 
