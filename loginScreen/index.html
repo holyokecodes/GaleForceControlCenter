@@ -129,12 +129,11 @@
     document.addEventListener('DOMContentLoaded', () => {
 
       if (window.vuplex) {
-        console.log('vuplex exists');
           window.addEventListener('vuplexready', window.vuplex.postMessage("REQUEST_FOR_INFO"));
 
           window.vuplex.addEventListener('message', function messageEndListener(event) {
               let json = JSON.parse(event.data);
-              console.log(json);
+              console.log(JSON.stringify(json));
               document.getElementById('aname').value = json.DisplayName;
           });
       }

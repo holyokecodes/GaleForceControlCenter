@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         window.vuplex.addEventListener('message', function messageEndListener(event) {
             let json = JSON.parse(event.data);
-            console.log(json);
-            document.getElementById('hairColor').jscolor.value = json.HairColor;
+            console.log(JSON.stringify(json));
+            document.getElementById('hairColor').jscolor.value = '#00FF00';
             document.getElementById('skinColor').jscolor.value = json.SkinColor;
             document.getElementById('pantsColor').jscolor.value = json.pantsColor;
         });
