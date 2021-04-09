@@ -1,3 +1,169 @@
 body {
     margin: 0;
+    margin: 0;
+    height: 100%;
+    position: fixed;
+    width: 100%;
 }
+#container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: gray;
+}
+
+#left {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    width: 50%;
+    background-color: #fff;
+}
+
+#right {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #4d0156;
+    border-top: 18px solid #24a0dd;
+    border-bottom: 18px solid #24a0dd;
+    height: 50%;
+    padding: 30px;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    height: 50%;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Squada One', cursive;
+    text-transform: uppercase;
+    font-size: 110px;
+    color: #fff;
+    margin: 30px;
+}
+
+input[type=text] {
+    width: 50%;
+    padding: 20px 35px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    color: #4d0156;
+    font-size: 2em;
+}
+
+::placeholder {
+    color: #4d0156;
+}
+
+.primary {
+    text-transform: uppercase;
+    font-size: 44px;
+    color: #fff;
+    font-family: 'Squada One', cursive;
+    font-weight: 400;
+    padding: 10px 75px;
+    background-color: #0c78ba;
+    text-decoration: none;
+    margin: 20px;
+}
+
+.secondary {
+    text-transform: uppercase;
+    font-size: 24px;
+    color: #fff;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    padding: 15px 30px;
+    background-color: #4d0156;
+    text-decoration: none;
+    margin: 20px;
+    flex: 0;
+    height: max-content;
+}
+
+#title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #4d0156;
+    border-top: 18px solid #24a0dd;
+    border-bottom: 18px solid #24a0dd;
+    height: 10%;
+    padding-top: 70px;
+    padding-bottom: 60px;
+    margin-bottom: 40px;
+}
+.picker-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.pickers {
+    display: flex;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 250px;
+}
+
+.picker-type {
+    display: flex;
+    justify-content: center;
+    color: #000;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 36px;
+    padding: 15px 30px;
+}
+
+.arrows {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.color-picker {
+    padding-left: 60px;
+}
+
+input, textarea, keygen, select, button {
+    margin-top: 0em;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    font-family: system-ui;
+    font-variant-caps: normal;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+}
+
+.jscolor {
+    width: 80px;
+}
+
