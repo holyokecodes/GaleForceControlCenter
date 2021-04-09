@@ -19,12 +19,14 @@
 <body>
 <div id=monitor>
 <h2>GaleForce Activity on <script>document.write(new Date().toLocaleDateString());</script>:</h2>
-<div class="teamdiv" id="teamnone">
-<h2>Team none</h2>
-</div> 
+
     
 <div class="teamdiv" id="teamZero">
 <h2>Team TeamZero</h2>
+</div> 
+     
+<div class="teamdiv" id="teamnone">
+<h2>Team none</h2>
 </div> 
     
 </div>    
@@ -61,10 +63,11 @@ firebase.database().ref('archive').on('child_added', (child) => {
     
      // change to substring(4,10) for today's date, (4,7) for this month
      if (data.time.includes(today.toDateString().substring(4,10))) {
+          // display most current first
          if(data.team == "none")
-            teamnone.innerHTML += output
+            teamnone.innerHTML = output + teamnone.innerHTML;
          else if (data.team == "TeamZero")
-            teamZero.innerHTML += output;
+            teamZero.innerHTML = output + teamZero.innerHTML;
      }
 });
                                       
