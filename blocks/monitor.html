@@ -7,27 +7,116 @@
   <link rel="stylesheet" href="style.css">
 
 <style>
-.teamdiv {
+.row {
+  display: flex;
+  flex-direction: row;        
+}
+.col {
+  width: 25%;         
+  border: 1px solid black;
+  padding: 5px;
+}
+.teamDiv {
   overflow:scroll; 
   height:600px;    
   width:50%; 
-  float:left
+  float:left;
+  background-color: white;
+  padding: 10px;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #8a237e;  
+     overflow:scroll;
+}
+
+#monitor {
+     width: 90%;
+     margin: auto;
+     background-color: white;
+     padding: 10px;
+}
+h2 {
+     text-align: center; 
 }
 </style>
 </head>
 
 <body>
 <div id=monitor>
-<h2>GaleForce Activity on <script>document.write(new Date().toLocaleDateString());</script>:</h2>
+<h2><img src="../GaleForce-logo.jpg" width=200px><br>Activity for Coding Missions on <script>document.write(new Date().toLocaleDateString());</script></h2>
 
-    
-<div class="teamdiv" id="teamZero">
-<h2>Team TeamZero</h2>
-</div> 
+<h3>Learn to Drive Missions:</h3>
+<div class="row">
+<div class="col">
+<div id="T1"><h3>Teaching Mission T1</h3></div>
+<div id="T2"><h3>Teaching Mission T2</h3></div>
+<div id="T3"><h3>Teaching Mission T3</h3></div>
+<div id="T4"><h3>Teaching Mission T4</h3></div>
+<div id="T5"><h3>Teaching Mission T5</h3></div>
+     </div>
+<div class="col">
+<div id="4a"><h3>Mission 4a</h3></div>
+<div id="4b"><h3>Mission 4b</h3></div>
+</div>
+<div class="col">
+<div id="5a"><h3>Mission 5a</h3></div>
+<div id="5b"><h3>Mission 5b</h3></div>
+     </div>
+<div class="col">
+<div id="6a"><h3>Mission 6a</h3></div>
+<div id="6b"><h3>Mission 6b</h3></div>
+</div>
+     </div>
      
-<div class="teamdiv" id="teamnone">
-<h2>Team none</h2>
+<h3>Follow Curb Missions:</h3>
+<div class="row">
+<div class="col">
+<div id="T7"><h3>Teaching Mission T7</h3></div>
+<div id="T8"><h3>Teaching Mission T8</h3></div>
+     </div>
+<div class="col">
+<div id="7a"><h3>Mission 7a</h3></div>
+<div id="7b"><h3>Mission 7b</h3></div>
+</div>
+<div class="col">
+<div id="8a"><h3>Mission 8a</h3></div>
+<div id="8b"><h3>Mission 8b</h3></div>
+     </div>
+<div class="col">
+<div id="9a"><h3>Mission 9a</h3></div>
+<div id="9b"><h3>Mission 9b</h3></div>
+</div>  
+     </div>     
+
+<h3>Drone Delivery Missions:</h3>
+<div class="row">
+<div class="col">
+<div id="T11"><h3>Teaching Mission T11</h3></div>
+     </div>
+<div class="col">
+<div id="11a"><h3>Mission 11a</h3></div>
+<div id="11b"><h3>Mission 11b</h3></div>
+</div>
+<div class="col">
+<div id="12a"><h3>Mission 12a</h3></div>
+<div id="12b"><h3>Mission 12b</h3></div>
+</div>
+<div class="col">
+<div id="13a"><h3>Mission 13a</h3></div>
+<div id="13b"><h3>Mission 13b</h3></div>
 </div> 
+          
+</div> 
+
+<hr>
+<h3>TeamZero Activity:</h3>
+<div id="teamZero">
+
+</div> 
+
+
+     
     
 </div>    
     
@@ -54,21 +143,28 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
      
 let today = new Date();     
-let teamnone = document.getElementById("teamnone");
+let missionsDiv = document.getElementById("missionsDiv");
 let teamZero = document.getElementById("teamZero");
+let missions = [];
+let players = [];
+let missionsDict = {};
 firebase.database().ref('archive').on('child_added', (child) => {
      let key = child.key;
      let data = child.val();
-     let output = "<p>Time " + data.time + "<br>Mission " + data.mission + "<br>Player: " + data.player + "<br>Changes: " + data.changes + "<br>Runs: " + data.runs + "<br> Status: " + data.status;
+     let time = data.time.substring(16,data.time.indexOf("GMT"));
+     let output = "<p>Time " + time + "<br>Player: " + data.player + "<br>Mission " + data.mission +  "<br>Changes: " + data.changes + "<br>Runs: " + data.runs + "<br> Status: " + data.status;
     
      // change to substring(4,10) for today's date, (4,7) for this month
      if (data.time.includes(today.toDateString().substring(4,10))) {
           // display most current first
-         if(data.team == "none")
-            teamnone.innerHTML = output + teamnone.innerHTML;
-         else if (data.team == "TeamZero")
+         if (data.team == "TeamZero")
             teamZero.innerHTML = output + teamZero.innerHTML;
+     
+          let missionDiv = document.getElementById(data.mission);
+          missionDiv.innerHTML += "<li>Player " + data.player + " at " + time + " Runs: " + data.runs + " " + data.status;
+        
      }
+          
 });
                                       
      
