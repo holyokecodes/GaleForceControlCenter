@@ -141,14 +141,19 @@ var firebaseConfig = {
  };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-     
+      
+firebase.database().ref('archive').on('child_added', (child) => {
+     showResults(child);
+});
+firebase.database().ref('archive').on('child_changed', (child) => {
+     showResults(child);
+});
+
 let today = new Date();     
 let missionsDiv = document.getElementById("missionsDiv");
 let teamZero = document.getElementById("teamZero");
-let missions = [];
-let players = [];
-let missionsDict = {};
-firebase.database().ref('archive').on('child_added', (child) => {
+                                      
+function showResults(child) {                                      
      let key = child.key;
      let data = child.val();
      let time = data.time.substring(16,data.time.indexOf("GMT"));
@@ -159,13 +164,16 @@ firebase.database().ref('archive').on('child_added', (child) => {
           // display most current first
          if (data.team == "TeamZero")
             teamZero.innerHTML = output + teamZero.innerHTML;
-     
-          let missionDiv = document.getElementById(data.mission);
-          missionDiv.innerHTML += "<li>Player " + data.player + " at " + time + " Runs: " + data.runs + " " + data.status;
+            
+         let missionDiv = document.getElementById(data.mission);
+         if (missionDiv == undefined)
+              console.log(data.mission + " not in web page");
+         else 
+            missionDiv.innerHTML += "<li>Player " + data.player + " at " + time + " Runs: " + data.runs + " " + data.status;
         
      }
           
-});
+}
                                       
      
      
