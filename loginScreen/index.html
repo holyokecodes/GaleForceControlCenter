@@ -18,7 +18,10 @@
 			
 			<div id="login">
 				<h1>GaleForce Login</h1>
-		     	<input type="text" id="aname" placeholder="Avatar Name">
+		     	<input type="text" id="aname" placeholder="Avatar Name" minlength="3" maxlength="25" required>
+           <span role="alert" id="nameError" aria-hidden="true">
+            Your name must be at least three letters.
+          </span>
 				<a id="play" href="#" class="primary large">play</a>
 			</div>
 
@@ -51,7 +54,19 @@
       document.getElementById('play').addEventListener('click', (e) => {
         e.preventDefault();
         const name = document.getElementById('aname').value;
-        window.vuplex.postMessage({ action: 'play', value: name});
+        if (name.length < 3) {
+          const nameError = document.getElementById("nameError");
+          nameError.classList.add("visible");
+          document.getElementById('aname').classList.add("invalid");
+          nameError.setAttribute("aria-hidden", false);
+          nameError.setAttribute("aria-invalid", true);
+        } else {
+          nameError.classList.remove("visible");
+          document.getElementById('aname').classList.remove("invalid");
+          nameError.setAttribute("aria-hidden", true);
+          nameError.setAttribute("aria-invalid", false);
+          window.vuplex.postMessage({ action: 'play', value: name});
+        }
       });
 
     });
