@@ -32,12 +32,12 @@ body {
 }
 
 #monitor {
-     width: 95%;
+     width: 90%;
      margin: auto;
      background-color: white;
      padding: 10px;
 }
-h2, h3 {
+h2 {
      text-align: center; 
 }
 </style>
@@ -47,12 +47,77 @@ h2, h3 {
 <div id=monitor>
 <h2><img src="../GaleForce-logo.jpg" width=200px><br>Activity for Coding Missions on <script>document.write(new Date().toLocaleDateString());</script></h2>
 
+     
+<h3>Learn to Drive Missions:</h3>
 <div class="row">
-     <div id="team1" class="col"><h3>Team 1</h3><hr>
-     </div>  
-     <div id="team2" class="col"><h3>Team 2</h3><hr></div>  
-       <div id="team3" class="col"><h3>Team 3</h3><hr></div>  
-       <div id="team4" class="col"><h3>Team 4</h3><hr></div>  
+<div class="col">
+<div id="T4"><h3>Teaching Mission T4</h3></div>
+<div id="T5"><h3>Teaching Mission T5</h3></div>
+     </div>
+<div class="col">
+<div id="4a"><h3>Mission 4a</h3></div>
+<div id="4b"><h3>Mission 4b</h3></div>
+</div>
+<div class="col">
+<div id="5a"><h3>Mission 5a</h3></div>
+<div id="5b"><h3>Mission 5b</h3></div>
+     </div>
+<div class="col">
+<div id="6a"><h3>Mission 6a</h3></div>
+<div id="6b"><h3>Mission 6b</h3></div>
+</div>
+     </div>
+     
+<h3>Follow Curb Missions:</h3>
+<div class="row">
+<div class="col">
+<div id="T7"><h3>Teaching Mission T7</h3></div>
+<div id="T8"><h3>Teaching Mission T8</h3></div>
+     </div>
+<div class="col">
+<div id="7a"><h3>Mission 7a</h3></div>
+<div id="7b"><h3>Mission 7b</h3></div>
+</div>
+<div class="col">
+<div id="8a"><h3>Mission 8a</h3></div>
+<div id="8b"><h3>Mission 8b</h3></div>
+     </div>
+<div class="col">
+<div id="9a"><h3>Mission 9a</h3></div>
+<div id="9b"><h3>Mission 9b</h3></div>
+</div>  
+     </div>     
+
+<h3>Drone Delivery Missions:</h3>
+<div class="row">
+<div class="col">
+<div id="T11"><h3>Teaching Mission T11</h3></div>
+<div id="T12"><h3>Teaching Mission T12</h3></div>
+     </div>
+<div class="col">
+<div id="11a"><h3>Mission 11a</h3></div>
+<div id="11b"><h3>Mission 11b</h3></div>
+</div>
+<div class="col">
+<div id="12a"><h3>Mission 12a</h3></div>
+<div id="12b"><h3>Mission 12b</h3></div>
+</div>
+<div class="col">
+<div id="13a"><h3>Mission 13a</h3></div>
+<div id="13b"><h3>Mission 13b</h3></div>
+</div> 
+          
+</div> 
+
+<hr>
+<h3>TeamZero Activity:</h3>
+<div id="teamZero">
+
+</div> 
+
+
+     
+    
 </div>    
     
     
@@ -86,72 +151,26 @@ firebase.database().ref('archive').on('child_changed', (child) => {
 
 let today = new Date();     
 let missionsDiv = document.getElementById("missionsDiv");
-let team1 = document.getElementById("team1");
-let team2 = document.getElementById("team2");
-let team3 = document.getElementById("team3");
-let team4 = document.getElementById("team4");
-      
-let team1lastMission = 0;
-let team2lastMission = 0;
-let team3lastMission = 0;
-let team4lastMission = 0;
-      
+let teamZero = document.getElementById("teamZero");
+                                      
 function showResults(child) {                                      
      let key = child.key;
      let data = child.val();
      let time = data.time.substring(16,data.time.indexOf("GMT"));
-     let output = "";
+     let output = "<p>Time " + time + "<br>Player: " + data.player + "<br>Mission " + data.mission +  "<br>Changes: " + data.changes + "<br>Runs: " + data.runs + "<br> Status: " + data.status;
     
      // change to substring(4,10) for today's date, (4,7) for this month
      if (data.time.includes(today.toDateString().substring(4,10))) {
-          
-          let dataItem = "<li>Player " + data.player + " at " + time + ", Runs: " + data.runs + " " + data.status;
-      
-          if (data.team == "team1") {
-               if (data.mission != team1lastMission)
-               {
-                 output += "<h4>Mission " + data.mission + "</h4>";
-                 team1lastMission = data.mission;
-               }
-               output += dataItem;
-               team1.innerHTML += output; 
-          }
-           
-          if (data.team == "team2"){
-               if (data.mission != team2lastMission)
-               {
-                 output += "<h4>Mission " + data.mission + "</h4>";
-                 team2lastMission = data.mission;
-               }
-               output += dataItem;
-               team2.innerHTML += output; 
-          }
+          // display most current first
+         if (data.team == "TeamZero")
+            teamZero.innerHTML = output + teamZero.innerHTML;
             
-          if (data.team == "team3"){
-               if (data.mission != team3lastMission)
-               {
-                 output += "<h4>Mission " + data.mission + "</h4>";
-                 team3lastMission = data.mission;
-               }
-               output += dataItem;
-               team3.innerHTML += output; 
-          }
-          if (data.team == "team4"){
-               if (data.mission != team4lastMission)
-               {
-                 output += "<h4>Mission " + data.mission + "</h4>";
-                 team4lastMission = data.mission;
-               }
-               output += dataItem;
-               team4.innerHTML += output; 
-          }
-          /*  
          let missionDiv = document.getElementById(data.mission);
          if (missionDiv == undefined)
               console.log(data.mission + " not in web page");
          else 
             missionDiv.innerHTML += "<li>Player " + data.player + " at " + time + " Runs: " + data.runs + " " + data.status;
-        */
+        
      }
           
 }
