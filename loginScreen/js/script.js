@@ -6,9 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
         window.vuplex.addEventListener('message', function messageEndListener(event) {
             let json = JSON.parse(event.data);
             console.log(JSON.stringify(json));
-            document.getElementById('hairColor').jscolor.fromString(json.HairColor);
+           document.getElementById('hairColor').jscolor.fromString(json.HairColor);
             document.getElementById('skinColor').jscolor.fromString(json.SkinColor);
-            document.getElementById('pantsColor').jscolor.fromString(json.PantsColor);
+           
+             document.getElementById('shirtColor').jscolor.fromString(json.ShirtColor);
+             document.getElementById('pantsColor').jscolor.fromString(json.PantsColor);
         });
     }
 
