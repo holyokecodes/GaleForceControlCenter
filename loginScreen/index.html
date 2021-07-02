@@ -18,7 +18,7 @@
 			
 			<div id="login">
 				<h1>GaleForce Login</h1>
-		     	<input type="text" id="aname" placeholder="Avatar Name" minlength="3" maxlength="25" required>
+		     	<input type="text" id="aname" placeholder="Avatar Name" onfocusout="saveAvatarName()" minlength="3" maxlength="25" required>
            <span role="alert" id="nameError" aria-hidden="true">
             Your name must be at least three letters.
           </span>
@@ -34,20 +34,23 @@
 		</div>
 
 		<div id="right">
-
 		</div>
 
 	</div>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
 
+      document.getElementById('aname').value = localStorage.getItem('avatarName');
+
       if (window.vuplex) {
           window.addEventListener('vuplexready', window.vuplex.postMessage("REQUEST_FOR_INFO"));
 
           window.vuplex.addEventListener('message', function messageEndListener(event) {
+            if (!localStorage.getItem('avatarName')) {
               let json = JSON.parse(event.data);
               console.log(JSON.stringify(json));
               document.getElementById('aname').value = json.DisplayName;
+            }
           });
       }
 
@@ -70,6 +73,10 @@
       });
 
     });
+    
+    function saveAvatarName() {
+      localStorage.setItem('avatarName', document.getElementById('aname').value);
+    }
   </script>
 </body>
 </html>
