@@ -73,14 +73,14 @@ document.getElementById("reset").onclick = function() {
 };
 // take into account multiple filters
 document.getElementById("show").onclick = function() {
-     let targetDate = dateMenu.value; 
+     //let targetDate = dateMenu.value; // date is now fixed
      let targetTeam = teamMenu.value; 
      let targetPlayer = playerMenu.value; 
      let targetMission = missionMenu.value; 
 
      filteredItems = items;
-     if (targetDate != "all")
-        filteredItems = filteredItems.filter(item => item.time.includes(targetDate));
+     //if (targetDate != "all")
+       // filteredItems = filteredItems.filter(item => item.time.includes(targetDate));
      if (targetTeam != "all")
         filteredItems = filteredItems.filter(item => item.team === targetTeam);
      if (targetMission != "all")
@@ -91,11 +91,11 @@ document.getElementById("show").onclick = function() {
      //console.log(filteredItems);
      populateMenus(filteredItems);
      
-     //console.log("Showing " + targetDate + " " + targetTeam + " " + targetPlayer + " " + targetMission + " ");
+     console.log("Showing " + targetTeam + " " + targetPlayer + " " + targetMission + " ");
      // show the first block by forcing an onchange
      if (timeMenu.length > 0) 
             timeMenu.dispatchEvent(new Event('change'));  
-     dateMenu.value = targetDate;
+     //dateMenu.value = targetDate;
      teamMenu.value = targetTeam;
      playerMenu.value = targetPlayer;
      missionMenu.value = targetMission;
@@ -106,7 +106,7 @@ function populateMenus(menuitems, except = null)
     let missions = [];
     let teams = [];
     let players = [];
-    let dates = [];
+    //let dates = [];
     stats.innerHTML = "";
     //if (except != "team" && teamMenu.value == "all") // redo teamMenu 
         teamMenu.innerHTML = "<option value='all'>All</option>";
@@ -115,10 +115,17 @@ function populateMenus(menuitems, except = null)
     //if (except != "mission"  && missionMenu.value == "all")
         missionMenu.innerHTML = "<option value='all'>All</option>"; 
 //    if (except != "date"  && dateMenu.value == "all")
-        dateMenu.innerHTML = "<option value='all'>All</option>";
+        //dateMenu.innerHTML = "<option value='all'>All</option>";
     timeMenu.innerHTML = "";
    
-    
+     // change to showing only 1 day at a time in menus
+     
+     let today = new Date(document.getElementById('date').value + "T00:00:00"); 
+     let targetDate = today.toString().substring(0,15); 
+     console.log(targetDate);
+     // Filter menuitems by the target date (default today)
+     menuitems = menuitems.filter(item => item.time.includes(targetDate));
+     
     for(let i=0; i < menuitems.length; i++){
         let item = menuitems[i];
  
@@ -146,13 +153,13 @@ function populateMenus(menuitems, except = null)
         let timeoption = "<option value='"+ item.key + "'>" + time + "</option>";
         timeMenu.innerHTML += timeoption;
         timeMenuAll += timeoption; 
-        if (
+        /*if (
              //except != "date" && 
              !(dates.includes(date))) { 
             dates.push(date);
             let dateoption = "<option value='"+ date + "'>" + date + "</option>";           
            dateMenu.innerHTML += dateoption;
-        }
+        }*/
     }
      // show the first block by forcing an onchange
      if (timeMenu.length > 0) 
@@ -160,21 +167,10 @@ function populateMenus(menuitems, except = null)
 }
 
 
-// allow change just by date
-dateMenu.onchange = function() {
-     let targetDate = dateMenu.value; 
-     if (targetDate == "all") {
-          timeMenu.innerHTML = timeMenuAll;
-         // show the first block by forcing an onchange 
-         timeMenu.dispatchEvent(new Event('change')); 
-         return;
-     }
-     filteredItems = items.filter(item => item.time.includes(targetDate));
-     populateMenus(filteredItems, "date");
-     dateMenu.value = targetDate;
-     // show the first block by forcing an onchange
-     if (timeMenu.length > 0) 
-            timeMenu.dispatchEvent(new Event('change'));  
+// if new date chosen, just call populate menus again which will read in the new date and filter
+date.onchange = function() {
+    filtereditems = items;
+     populateMenus(items);
 }
 
 // when time in menu is selected, show blocks 
@@ -192,53 +188,7 @@ timeMenu.onchange = function() {
        updateStats(item);
 } 
 
-/* Disallow single filtering so that users can do multiple filters at once and hit show button.
 
-teamMenu.onchange = function() {
-     let targetTeam = teamMenu.value; 
-     if (targetTeam == "all") {
-          timeMenu.innerHTML = timeMenuAll;
-         // show the first block by forcing an onchange 
-         timeMenu.dispatchEvent(new Event('change')); 
-         return;
-     }
-     filteredItems = items.filter(item => item.team === targetTeam);
-     populateMenus(filteredItems, "team");
-     // show the first block by forcing an onchange
-     if (timeMenu.length > 0) 
-            timeMenu.dispatchEvent(new Event('change'));  
-}
-
-playerMenu.onchange = function() {
-     let targetPlayer = playerMenu.value; 
-     if (targetPlayer == "all") {
-          timeMenu.innerHTML = timeMenuAll;
-         // show the first block by forcing an onchange 
-         timeMenu.dispatchEvent(new Event('change')); 
-         return;
-     }
-     filteredItems = items.filter(item => item.player === targetPlayer);
-     populateMenus(filteredItems, "player");
-     // show the first block by forcing an onchange
-     if (timeMenu.length > 0) 
-            timeMenu.dispatchEvent(new Event('change'));  
-}
-
-missionMenu.onchange = function() {
-     let targetMission = missionMenu.value; 
-     if (targetMission.toUpperCase() == "ALL") {
-         timeMenu.innerHTML = timeMenuAll;
-         // show the first block by forcing an onchange 
-         timeMenu.dispatchEvent(new Event('change')); 
-         return;
-     }
-     filteredItems = items.filter(item => item.mission === targetMission);
-     populateMenus(filteredItems, "mission");
-     // show the first block by forcing an onchange
-     if (timeMenu.length > 0) 
-          timeMenu.dispatchEvent(new Event('change'));  
-}
-*/
 
 document.getElementById("next").onclick = function() {
        let timeMenu = document.getElementById("time");

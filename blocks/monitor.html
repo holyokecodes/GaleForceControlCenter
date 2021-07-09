@@ -45,7 +45,11 @@ h2, h3 {
 
 <body>
 <div id=monitor>
-<h2><img src="../GaleForce-logo.jpg" width=200px><br>Activity for Coding Missions on <script>document.write(new Date().toLocaleDateString());</script></h2>
+<h2><img src="../GaleForce-logo.jpg" width=200px><br>Activity for Coding Missions on <input id="day" type="date" onChange="changeToday()"></h2>
+     
+     <script>
+          document.getElementById('day').valueAsDate = new Date();
+     </script>
 
 <div class="row">
      <div id="team1" class="col"><h3>Team 1</h3><hr>
@@ -54,7 +58,7 @@ h2, h3 {
        <div id="team3" class="col"><h3>Team 3</h3><hr></div>  
        <div id="team4" class="col"><h3>Team 4</h3><hr></div>  
 </div>    
-    
+</div>    
     
   <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
@@ -65,6 +69,9 @@ h2, h3 {
 
 
  <script>
+//let today = new Date(); 
+let today = new Date(document.getElementById('day').value + "T00:00:00"); 
+
 // Your web app's Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyBZHVq70uDVkDf0hofklzv69lkRXQ05tB4",
@@ -78,13 +85,13 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
       
 firebase.database().ref('archive').on('child_added', (child) => {
-     showResults(child);
+     showResults(child, today);
 });
 firebase.database().ref('archive').on('child_changed', (child) => {
-     showResults(child);
+     showResults(child, today);
 });
 
-let today = new Date();     
+  
 let missionsDiv = document.getElementById("missionsDiv");
 let team1 = document.getElementById("team1");
 let team2 = document.getElementById("team2");
@@ -96,15 +103,17 @@ let team2lastMission = 0;
 let team3lastMission = 0;
 let team4lastMission = 0;
       
-function showResults(child) {                                      
+function showResults(child, today) {                                 
      let key = child.key;
      let data = child.val();
      let time = data.time.substring(16,data.time.indexOf("GMT"));
      let output = "";
-    
+     let date = new Date(data.time);
+     date.setHours(0, 0, 0, 0);
      // change to substring(4,10) for today's date, (4,7) for this month
-     if (data.time.includes(today.toDateString().substring(4,10))) {
-          
+    // if (data.time.includes(today.toDateString().substring(4,10))) {
+    if (today.getTime() == date.getTime()) {   
+         console.log(today + " == " + date);
           let dataItem = "<li>Player " + data.player + " at " + time + ", Runs: " + data.runs + " " + data.status;
       
           if (data.team == "team1") {
@@ -157,10 +166,25 @@ function showResults(child) {
 }
                                       
      
+function changeToday()
+{
+  today = new Date(document.getElementById('day').value + "T00:00:00");
+  team1.innerHTML = "";
+  team2.innerHTML = 
+  team3.innerHTML = 
+  team4.innerHTML = "";
      
+   firebase.database().ref('archive').on('child_added', (child) => {
+     showResults(child, today);
+});
+firebase.database().ref('archive').on('child_changed', (child) => {
+     showResults(child, today);
+});
+}     
 
       
 </script>
+
 </body>
 
 </html>
