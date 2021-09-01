@@ -184,4 +184,19 @@ input, textarea, keygen, select, button {
   input.invalid {
     border-color: #fff;
   }
+
+
+  #codeError {
+    display: none;
+    font-size: 1.5vw;
+    color: #ffffff;
+  }
+  
+  #codeError.visible {
+    display: block;
+  }
+  
+  input.invalid {
+    border-color: #fff;
+  }
   
