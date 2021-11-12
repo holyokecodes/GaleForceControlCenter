@@ -56,7 +56,14 @@
           if (!localStorage.getItem('avatarName')) {
             let json = JSON.parse(event.data);
             console.log(JSON.stringify(json));
-            document.getElementById('aname').value = json.DisplayName;
+            
+            if (json.hasOwnProperty('DisplayName')) {
+              document.getElementById('aname').value = json.DisplayName;
+            }
+            if (json.hasOwnProperty('SessionCode')) {
+              document.getElementById('sessioncode').value = json.SessionCode;
+            }
+
           }
         });
       }
