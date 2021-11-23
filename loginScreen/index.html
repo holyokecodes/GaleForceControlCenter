@@ -64,7 +64,7 @@
           }
           if (!localStorage.getItem('sessionCode')) {
             if (json.hasOwnProperty('SessionCode')) {
-              document.getElementById('sessioncode').value = json.SessionCode;
+              document.getElementById('sessionCode').value = json.SessionCode;
             }
           }
         });
@@ -73,7 +73,7 @@
       document.getElementById('play').addEventListener('click', (e) => {
         e.preventDefault();
         const name = document.getElementById('aname').value;
-        const code = document.getElementById('sessioncode').value;
+        const code = document.getElementById('sessionCode').value;
 
 
         if (name.length < 3) {
@@ -96,12 +96,12 @@
               if (data.error) {
                 const codeError = document.getElementById("codeError");
                 codeError.classList.add("visible");
-                document.getElementById('sessioncode').classList.add("invalid");
+                document.getElementById('sessionCode').classList.add("invalid");
                 codeError.setAttribute("aria-hidden", false);
                 codeError.setAttribute("aria-invalid", true);
               } else {
                 codeError.classList.remove("visible");
-                document.getElementById('sessioncode').classList.remove("invalid");
+                document.getElementById('sessionCode').classList.remove("invalid");
                 codeError.setAttribute("aria-hidden", true);
                 codeError.setAttribute("aria-invalid", false);
                 window.vuplex.postMessage({ action: 'play', value: name + "," + code });
