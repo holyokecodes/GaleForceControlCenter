@@ -48,22 +48,24 @@
     document.addEventListener('DOMContentLoaded', () => {
 
       document.getElementById('aname').value = localStorage.getItem('avatarName');
+      document.getElementById('sessionCode').value = localStorage.getItem('sessionCode');
 
       if (window.vuplex) {
         window.addEventListener('vuplexready', window.vuplex.postMessage("REQUEST_FOR_INFO"));
 
         window.vuplex.addEventListener('message', function messageEndListener(event) {
+          let json = JSON.parse(event.data);
+          console.log(JSON.stringify(json));
+
           if (!localStorage.getItem('avatarName')) {
-            let json = JSON.parse(event.data);
-            console.log(JSON.stringify(json));
-            
             if (json.hasOwnProperty('DisplayName')) {
               document.getElementById('aname').value = json.DisplayName;
             }
+          }
+          if (!localStorage.getItem('sessionCode')) {
             if (json.hasOwnProperty('SessionCode')) {
               document.getElementById('sessioncode').value = json.SessionCode;
             }
-
           }
         });
       }
