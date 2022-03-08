@@ -45,7 +45,9 @@ h2, h3 {
 
 <body>
 <div id=monitor>
-<h2><img src="../GaleForce-logo.jpg" width=200px><br>Activity for Coding Missions on <input id="day" type="date" onChange="changeToday()"></h2>
+<h2><img src="../GaleForce-logo.jpg" width=200px><br>Activity for Coding Missions on <input id="day" type="date" onChange="changeToday()"> Session ID: <input id="session">
+     <button onclick="changeToday()">Enter</button>
+     </h2>
      
      <script>
           document.getElementById('day').valueAsDate = new Date();
@@ -72,6 +74,8 @@ h2, h3 {
 //let today = new Date(); 
 let today = new Date(document.getElementById('day').value + "T00:00:00"); 
 
+let session = document.getElementById('session').value;
+      
 // Your web app's Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyBZHVq70uDVkDf0hofklzv69lkRXQ05tB4",
@@ -90,7 +94,19 @@ firebase.database().ref('archive').on('child_added', (child) => {
 firebase.database().ref('archive').on('child_changed', (child) => {
      showResults(child, today);
 });
+      
+// with session
+if (session != "")
+{
+     firebase.database().ref(`${session}/archive`).on('child_added', (child) => {
+     showResults(child, today);
+});
+firebase.database().ref(`${session}/archive`).on('child_changed', (child) => {
+     showResults(child, today);
+});
+}
 
+      
   
 let missionsDiv = document.getElementById("missionsDiv");
 let team1 = document.getElementById("team1");
@@ -173,13 +189,27 @@ function changeToday()
   team2.innerHTML = 
   team3.innerHTML = 
   team4.innerHTML = "";
-     
+
    firebase.database().ref('archive').on('child_added', (child) => {
      showResults(child, today);
 });
 firebase.database().ref('archive').on('child_changed', (child) => {
      showResults(child, today);
 });
+// with session
+session = document.getElementById('session').value;
+if (session != "")
+{
+     console.log(session);
+     firebase.database().ref(`${session}/archive`).on('child_added', (child) => {
+     showResults(child, today);
+     });
+     firebase.database().ref(`${session}/archive`).on('child_changed', (child) => {
+     showResults(child, today);
+});
+}
+
+     
 }     
 
       

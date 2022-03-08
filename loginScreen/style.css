@@ -24,7 +24,7 @@ body {
     display: flex;
     width: 50%;
     height: 100%;
-    background-color: transparent;
+    background-color: #cfe3f0;
     display: flex;
     flex-direction: column;
     align-items: center;
