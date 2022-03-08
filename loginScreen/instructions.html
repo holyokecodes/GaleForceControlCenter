@@ -36,7 +36,7 @@
         .swiper-button-next::after, .swiper-button-prev::after {
             color: #4d0156;
         }
-        .buttons {
+        #buttons {
             flex: 0;
         }
     </style>
@@ -87,7 +87,9 @@
         </div>
     </div>
     <script>
-        window.vuplex.postMessage({ action: 'hideAvatar', value: 'now' });
+        if (window.vuplex) {
+            window.vuplex.postMessage({ action: 'hideAvatar', value: 'now' });
+        }
         const swiper = new Swiper('.swiper', {        
             // Navigation arrows
             navigation: {
@@ -96,7 +98,9 @@
             },
         });
         function back() {
-            window.vuplex.postMessage({ action: 'showAvatar', value: 'now' });
+            if (window.vuplex) {
+                window.vuplex.postMessage({ action: 'showAvatar', value: 'now' });
+            }
             window.location = "index.html";
         }
     </script>

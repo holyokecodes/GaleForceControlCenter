@@ -35,7 +35,7 @@
       <div id="buttons">
         <a href="customize.html" class="secondary">customize avatar</a>
         <a href="instructions.html" class="secondary">how to play</a>
-				<a href="#" class="secondary">quit</a>
+				<a href="#" onclick="javascript: quit()" class="secondary">quit</a>
       </div>
 
     </div>
@@ -121,7 +121,9 @@
     }
 
     function quit() {
-      window.vuplex.postMessage({ action: 'quit', value: 'now' });
+      if (window.vuplex) {
+        window.vuplex.postMessage({ action: 'quit', value: 'now' });
+      }
     }
   </script>
 </body>
