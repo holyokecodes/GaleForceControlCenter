@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>GaleForce Instructions</title>
+    <!-- Style sheets -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        #container {
+            flex-direction: column;
+            justify-content: center;
+        }
+        .swiper {
+            max-width: 100%;
+        }
+        .swiper-slide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .swiper img, .swiper video {
+            width: 840px;
+            max-width: 80vw;
+            max-height: 80vh;
+        }
+        .swiper-slide p {
+            max-width: 840px;
+            padding: 0 60px;
+        }
+        .swiper-button-next::after, .swiper-button-prev::after {
+            color: #4d0156;
+        }
+    </style>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+</head>
+<body>
+    <div id="container">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <video autoplay="" loop="" playsinline="" muted=""><source src="https://galeforcegame.com/wp-content/uploads/2021/11/galeforce.m4v"></video>
+                    <p>
+                        Be a first responder and help with the next big hurricane in San Juan, Puerto Rico. In this game you will use code blocks to control robots and drones to prepare for the storm and respond after it hits. 
+                    </p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="Assets/TrainingPosters-Moving.png"/>
+                    <p>
+                        Your avatar will start in the training complex, a large room with four control tables. Each table has four workstations. As you move around the training complex, you'll see a team numbers (1 - 4) above the control tables. Each team can work on missions independently. As part of a team, players can collaborate, writing code together or alternating who controls a remotely operated robot.
+                    </p>
+                </div>
+                <div class="swiper-slide">   
+                    <img src="Assets/TrainingPosters-WorkstationUI.png"/>     
+                    <p>
+                        Walk up to a workstation and click on it to get started. At a workstation, you can choose missions to help people prepare for the hurricane or help them after the hurricane arrives.
+                    </p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="Assets/TrainingPosters-Cameras.png"/>
+                    <p>
+                        Each robot has a number of camera views. You can select the camera that is most useful for your mission.
+                    </p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="Assets/TrainingPosters-Grid.png"/>
+                    <p>
+                        The grid can be helpful to determine the distance in meters between two locations. It can also be used to determine coordinates for flying drones.
+                    </p>
+                </div>
+            </div>
+
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+
+        <div id="buttons">
+            <a href="index.html" class="primary large">Done</a>
+        </div>
+    </div>
+    <script>
+        const swiper = new Swiper('.swiper', {        
+            // Navigation arrows
+            navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+</body>
+</html>
+
+

@@ -93,7 +93,7 @@ input[type=text] {
     padding: 1vw 3vw;
     background-color: #4d0156;
     text-decoration: none;
-    margin: 2vw;
+    margin: 2vh 2vw 0 2vw;
     flex: 0;
     height: max-content;
 }
